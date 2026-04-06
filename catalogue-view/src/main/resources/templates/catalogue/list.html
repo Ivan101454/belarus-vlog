@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Blog about Belarus</title>
+    <link rel="shortcut icon" th:href="@{/images/favicon.ico}" />
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header class="header">
+    <a href="/" class="header__home-link">
+        <img
+                class="header__logo"
+                th:src="@{/images/logo.svg}"
+                alt="blog-logo"
+                width="32px" loading="lazy"
+        >
+        <span>My Blog about Belarus</span>
+    </a>
+    <nav class="header__menu">
+        <ul class="header__menu-list">
+            <li class="header__menu-item">
+                <a href="/" class="header__menu-link">Art</a>
+            </li>
+            <li class="header__menu-item">
+                <a href="/" class="header__menu-link">Food</a>
+            </li>
+            <li class="header__menu-item">
+                <a href="/" class="header__menu-link">Events</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main>
+<section class="content">
+<h1>Let's explore Belarus for yourself</h1>
+    <div class="content__wrapper">
+        <ul class="content__article-list">
+            <li class="content__article-item card" th:each="article: ${articles}">
+                <div class="card__wrapper">
+                    <img
+                            class="card__img"
+                            th:src="@{/images/articles/{img}(img=${article.imageName})}"
+                            th:alt="${article.imageName}"
+                            width="320" height="180"
+                    />
+                    <p class="card__title" th:text="${article.title}"></p>
+                    <p class="card__description" th:text="${article.description}"></p>
+                    <p class="card__category" th:text="${article.category}"></p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+</main>
+<footer></footer>
+</body>
+</html>
