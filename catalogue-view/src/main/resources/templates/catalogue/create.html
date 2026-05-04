@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Blog about Belarus</title>
+    <link rel="shortcut icon" th:href="@{/images/favicon.ico}" />
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header th:replace="~{fragments/layout :: header}" class="header">
+</header>
+<main>
+    <section class="create">
+        <h1 class="create-article__title">Create new article</h1>
+        <form th:action="@{/catalogue-view/article/list/create}" method="post" class="create-article__form">
+            <label for="title">title</label>
+            <input type="text" name="title" id="title">
+            <label for="description">description</label>
+            <textarea type="text" name="description" id="description"></textarea>
+            <label for="imageName">imageName</label>
+            <input type="text" name="imageName" id="imageName">
+            <label for="category">category</label>
+            <select name="category" id="category">
+                <option value="ART">ART</option>
+                <option value="FOOD">FOOD</option>
+                <option value="EVENTS">EVENTS</option>
+                <option value="INTERESTING_PLACES">INTERESTING_PLACES</option>
+            </select>
+            <button type="submit">Create article</button>
+        </form>
+    </section>
+</main>
+<footer></footer>
+</body>
+</html>

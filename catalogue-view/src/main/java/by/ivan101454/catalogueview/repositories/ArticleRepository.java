@@ -7,4 +7,6 @@ import java.util.List;
 public interface ArticleRepository {
 
     List<Article> findAllArticles();
+
+    void save(Article article);
 }

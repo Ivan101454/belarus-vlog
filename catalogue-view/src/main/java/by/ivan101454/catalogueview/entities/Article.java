@@ -15,7 +15,7 @@ import java.time.LocalDate;
 public class Article {
 
     private String title;
-    private String author;
+    private Author author;
     private LocalDate publishDate;
     private String description;
     private String content;
